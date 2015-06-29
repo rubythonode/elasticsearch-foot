@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Elasticsearch Foot</title>
+<link rel="stylesheet" href="resources/bootstrap-3.3.4-dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="resources/bootstrap-3.3.4-dist/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="resources/font-awesome-4.3.0/css/font-awesome.min.css">
+<style type="text/css">
+body {
+  padding-top: 70px;
+  padding-bottom: 30px;
+}
+
+.text-warning {
+	color: #E38D13;
+}
+
+table thead tr th {
+	text-align: center;
+}
+
+table tbody tr td {
+	text-align: right;
+}
+
+.table-td-center {
+	text-align: center;
+}
+
+.sort-list {
+	cursor: pointer;
+}
+</style>
+</head>
+<body role='document'>
+	<div id="header"></div>
+	
+	<div id="body"></div>
+	
+	<div id="footer"></div>
+</body>
+<script src="resources/jquery/jquery-1.11.2.min.js"></script>
+<script src="resources/bootstrap-3.3.4-dist/js/bootstrap.min.js"></script>
+<script src="resources/foot/js/foot_ns.js"></script>
+<script src="resources/foot/js/foot_util.js"></script>
+<script src="resources/foot/js/foot_ui.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#header").load("layout/header.html"); 
+	$("#body").load("view/" + F.util.viewName('view')); 
+	$("#footer").load("layout/footer.html");
+});
+</script>

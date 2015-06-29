@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Elasticsearch Foot</title>
+<link rel="stylesheet" href="resources/bootstrap-3.3.4-dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="resources/bootstrap-3.3.4-dist/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="resources/font-awesome-4.3.0/css/font-awesome.min.css">
+<style type="text/css">
+body {
+  padding-top: 70px;
+  padding-bottom: 30px;
+}
+</style>
+</head>
+<body role='document'>
+	<!-- Fixed navbar -->
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">Foot</a>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#overview">Overview</a></li>
+					<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Cluster <span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="#">Cluster Stats</a></li>
+							<li class="divider"></li>
+							<li class="dropdown-header">Cluster Health</li>
+							<li><a href="#">Indices Level</a></li>
+						</ul>
+					</li>
+					<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Indices <span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="#">Indices Stats</a></li>
+							<li class="divider"></li>
+							<li class="dropdown-header">Fielddata</li>
+							<li><a href="#">All</a></li>
+							<li><a href="#">Indices Level</a></li>
+							<li><a href="#">Node Level</a></li>
+							<li class="dropdown-header">Segments</li>
+							<li><a href="#">Indices Level</a></li>
+						</ul>
+					</li>
+					<li><a href="#nodes">Nodes</a></li>
+					<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Utilities <span class="caret"></span></a>
+					</li>
+				</ul>
+			</div>
+			<!--/.nav-collapse -->
+		</div>
+	</nav>
+	
+	<div class='container' role='main'>
+		<div id='main-overview'>
+			<div id='cluster-health'>
+				<h3>Cluster Health <a id='cluster-health-ref' href='#' target='_blank'><i class="fa fa-external-link-square"></i></a></h3>
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th>cluster name</th>
+							<th>status</th>
+							<th>timed out</th>
+							<th>#total nodes</th>
+							<th>#data_nodes</th>
+							<th>#active primary shards</th>
+							<th>#active shards</th>
+							<th>#relocating shards</th>
+							<th>#initializing shards</th>
+							<th>#unassigned shards</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>cluster name</td>
+							<td>status</td>
+							<td>timed_out</td>
+							<td>number_of_nodes</td>
+							<td>number_of_data_nodes</td>
+							<td>active_primary_shards</td>
+							<td>active_shards</td>
+							<td>relocating_shards</td>
+							<td>initializing_shards</td>
+							<td>unassigned_shards</td>
+						</tr>
+					</<tbody>
+				</table>
+			</div>
+			
+			<div id='indices-health'>
+				<h3>Indices Health <a id='indices-health-ref' href='#' target='_blank'><i class="fa fa-external-link-square"></i></a></h3>
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th>health</th>
+							<th>status</th>
+							<th>index</th>
+							<th>#primary shards</th>
+							<th>#replica shards</th>
+							<th>#docs</th>
+							<th>#deleted docs</th>
+							<th>store size</th>
+							<th>primary store size</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th>health</th>
+							<th>status</th>
+							<th>index</th>
+							<th>primary shards</th>
+							<th>replica shards</th>
+							<th>docs</th>
+							<th>deleted docs</th>
+							<th>store size</th>
+							<th>primary store size</th>
+						</tr>
+					</<tbody>
+				</table>
+			</div>
+			
+			<div id='nodes-health'>
+				<h3>Nodes Health <a id='nodes-health-ref' href='#' target='_blank'><i class="fa fa-external-link-square"></i></a></h3>
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th>node</th>
+							<th>host</th>
+							<th>role</th>
+							<th>#shards</th>
+							<th>disk used(%)</th>
+							<th>heap used(%)</th>
+							<th>fielddata</th>
+							<th>load</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th>node</th>
+							<th>host</th>
+							<th>role</th>
+							<th>#shards</th>
+							<th>disk used(%)</th>
+							<th>heap used(%)</th>
+							<th>fielddata</th>
+							<th>load</th>
+						</tr>
+					</<tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	
+	<div class='container footer'>
+		Elasticsearch Foot, 2015
+		socurites@gmail.com
+	</div>
+</body>
+<script src="resources/jquery/jquery-1.11.2.min.js"></script>
+<script src="resources/bootstrap-3.3.4-dist/js/bootstrap.min.js"></script>
+<script src="resources/foot/js/foot_ns.js"></script>
+<script src="resources/foot/js/foot_util.js"></script>
+<script src="resources/foot/js/foot_admin.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	initRef();
+	
+	clusterHealth();
+	indicesHealth();
+	nodesHealth();
+});
+</script>
+
+<script type="text/javascript">
+var initRef = function() {
+	$('#cluster-health-ref').attr('href', F.ref._cluster_health);
+	$('#indices-health-ref').attr('href', F.ref._indices_health);
+	$('#nodes-health-ref').attr('href', F.ref._nodes_health);
+};
+</script>
+</html>

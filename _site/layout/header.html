@@ -1,0 +1,47 @@
+<!-- Fixed navbar -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="/_plugin/elasticsearch-foot/index.html?view=overview.html">Foot</a>
+		</div>
+		<div id="navbar" class="navbar-collapse collapse">
+			<ul class="nav navbar-nav">
+				<li id="menu-overview" class="active"><a href="/_plugin/elasticsearch-foot/index.html?view=overview.html">Overview</a></li>
+				<li id="menu-cluster" class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Cluster <span class="caret"></span></a>
+					<ul class="dropdown-menu" role="menu">
+						<li><a href="/_plugin/elasticsearch-foot/index.html?view=cluster_stats.html">Cluster Stats</a></li>
+						<li class="divider"></li>
+						<li class="dropdown-header">Cluster Health</li>
+						<li><a href="/_plugin/elasticsearch-foot/index.html?view=cluster_health_indices_level.html">Indices Level</a></li>
+					</ul>
+				</li>
+				<li id="menu-indices" class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Indices <span class="caret"></span></a>
+					<ul class="dropdown-menu" role="menu">
+						<li><a href="/_plugin/elasticsearch-foot/index.html?view=indices_stats.html">Indices Stats</a></li>
+						<li class="divider"></li>
+						<li class="dropdown-header">Fielddata</li>
+						<li><a href="/_plugin/elasticsearch-foot/index.html?view=fielddata_indices_level.html">Indices Level</a></li>
+						<li><a href="/_plugin/elasticsearch-foot/index.html?view=fielddata_nodes_level.html">Nodes Level</a></li>
+						<li class="dropdown-header">Segments</li>
+						<li><a href="/_plugin/elasticsearch-foot/index.html?view=segments_indices_level.html">Indices Level</a></li>
+					</ul>
+				</li>
+				<li id="menu-nodes" class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Nodes <span class="caret"></span></a>
+					<ul class="dropdown-menu" role="menu">
+						<li><a href="/_plugin/elasticsearch-foot/index.html?view=nodes_stats.html">Nodes Stats</a></li>
+						<li class="disabled"><a href="javascript:alert('coming soon');">Metrics Level</a></li>
+					</ul>
+				</li>
+				<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Utilities <span class="caret"></span></a>
+				</li>
+			</ul>
+		</div>
+		<!--/.nav-collapse -->
+	</div>
+</nav>

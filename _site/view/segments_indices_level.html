@@ -1,0 +1,81 @@
+<style>
+.list-group {
+	box-shadow: none;
+}
+</style>
+<div class='container' role='main'>
+	<div id='main-overview'>
+		<h2>
+			Segments - Indies Level <a id='segments-indices-level-ref' href='#' target='_blank'><i class="fa fa-external-link-square"></i></a>
+		</h2>
+		<div class='container'>
+			<div id='segments-indices-level' class='row'>
+				<div id='indices-selector' class="col-lg-2 list-group">
+					<!-- a href="#" class="list-group-item"> Cras justo odio </a-->
+				</div>
+				<div class="col-lg-10 list-group">
+					<div class='container'>
+						<div class='row'>
+							<div class='col-lg-6'>
+								<table id='indices-segments-stats' class="table table-bordered">
+									<thead>
+										<tr>
+											<th colspan='3'>#shards</th>
+										</tr>
+										<tr>
+											<th>total</th>
+											<th>successful</th>
+											<th>failed</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<th>-</th>
+											<th>-</th>
+											<th>-</th>
+										</tr>
+									</<tbody>
+								</table>
+								
+								<table id='indices-segments-per-shard' class="table table-bordered">
+									<thead>
+										<tr>
+											<th rowspan='2'>shard</th>
+											<th colspan='2'>#segments</th>
+										</tr>
+										<tr>
+											<th>committed</th>
+											<th>search</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<th>-</th>
+											<th>-</th>
+											<th>-</th>
+										</tr>
+									</<tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="resources/foot/js/foot_admin_indices.js"></script>
+<script type="text/javascript">
+var initRef = function() {
+	$('#segments-indices-level-ref').attr('href', F.ref._segments_indices_level);
+};
+</script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	initRef();
+	
+	listIndices4Segments();
+});
+</script>

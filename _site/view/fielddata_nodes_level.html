@@ -1,0 +1,63 @@
+<style>
+.list-group {
+	box-shadow: none;
+}
+</style>
+<div class='container' role='main'>
+	<div id='main-overview'>
+		<h2>
+			Fielddata - Nodes Level <a id='fielddata-indices-level-ref' href='#' target='_blank'><i class="fa fa-external-link-square"></i></a>
+		</h2>
+		<div id='fielddata-nodes-level' class='row'>
+			<div id='nodes-fielddata' class="col-lg-6">
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th>node</th>
+							<th>memory_size_in_bytes</th>
+							<th>evictions</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th>-</th>
+							<th>-</th>
+							<th>-</th>
+						</tr>
+					</<tbody>
+				</table>
+			</div>
+			<div id='nodes-fielddata-fields' class='col-lg-4'>
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th>field</th>
+							<th>memory_size_in_bytes</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th>-</th>
+							<th>-</th>
+						</tr>
+					</<tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="resources/foot/js/foot_admin_indices.js"></script>
+<script type="text/javascript">
+var initRef = function() {
+	$('#fielddata-indices-level-ref').attr('href', F.ref._fielddata_indices_level);
+};
+</script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	initRef();
+	
+	fielddataNodesLevel();
+});
+</script>

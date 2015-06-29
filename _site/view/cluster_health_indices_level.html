@@ -1,0 +1,54 @@
+<div class='container' role='main'>
+	<div id='main-overview'>
+		<h2>Cluster Health - Indices Level</h2>
+		<div id='cluster-health-indices-level'>
+			<h3>Indices Health <a id='indices-health-ref' href='#' target='_blank'><i class="fa fa-external-link-square"></i></a></h3>
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th rowspan='2'>index<span class='pull-right'><i class='fa fa-chevron-down sort-list' onclick='javascript:F.ui.sortList(event, "indicesLevelHealth", "index", __renderindicesLevelHealth);'></i></span></th>
+						<th rowspan='2'>status</th>
+						<th colspan='7'>#shards</th>
+					</tr>
+					<tr>
+						<th>#total<span class='pull-right'><i class='fa fa-chevron-down sort-list' onclick='javascript:F.ui.sortList(event, "indicesLevelHealth", "number_of_shards", __renderindicesLevelHealth);'></i></span></th>
+						<th>#replica<span class='pull-right'><i class='fa fa-chevron-down sort-list' onclick='javascript:F.ui.sortList(event, "indicesLevelHealth", "number_of_replicas", __renderindicesLevelHealth);'></i></span></th>
+						<th>#active primary<span class='pull-right'><i class='fa fa-chevron-down sort-list' onclick='javascript:F.ui.sortList(event, "indicesLevelHealth", "active_primary_shards", __renderindicesLevelHealth);'></i></span></th>
+						<th>#active<span class='pull-right'><i class='fa fa-chevron-down sort-list' onclick='javascript:F.ui.sortList(event, "indicesLevelHealth", "active_shards", __renderindicesLevelHealth);'></i></span></th>
+						<th>#relocating<span class='pull-right'><i class='fa fa-chevron-down sort-list' onclick='javascript:F.ui.sortList(event, "indicesLevelHealth", "relocating_shards", __renderindicesLevelHealth);'></i></span></th>
+						<th>#initializing<span class='pull-right'><i class='fa fa-chevron-down sort-list' onclick='javascript:F.ui.sortList(event, "indicesLevelHealth", "initializing_shards", __renderindicesLevelHealth);'></i></span></th>
+						<th>#unassigned<span class='pull-right'><i class='fa fa-chevron-down sort-list' onclick='javascript:F.ui.sortList(event, "indicesLevelHealth", "unassigned_shards", __renderindicesLevelHealth);'></i></span></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>index</td>
+						<td>status</td>
+						<th>#total</th>
+						<th>#replica</th>
+						<th>#active primary</th>
+						<th>#active</th>
+						<th>#relocating</th>
+						<th>#initializing</th>
+						<th>#unassigned</th>
+					</tr>
+				</<tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<script src="resources/foot/js/foot_admin_cluster.js"></script>
+<script type="text/javascript">
+var initRef = function() {
+	$('#indices-health-ref').attr('href', F.ref._indices_health);
+};
+</script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	initRef();
+	
+	indicesLevelHealth();
+});
+</script>

@@ -1,0 +1,74 @@
+<div class='container' role='main'>
+	<div id='main-overview'>
+		<h2>Cluster Stats <a id='cluster-stats-nodes-ref' href='#' target='_blank'><i class="fa fa-external-link-square"></i></a></h2>
+		<div id='cluster-stats-nodes'>
+			<h3>Nodes</h3>
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th>#version</th>
+						<th>#total nodes</th>
+						<th>#master only</th>
+						<th>#data only</th>
+						<th>#master_data</th>
+						<th>#clinet</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>#version</th>
+						<th>#total nodes</th>
+						<th>#master only</th>
+						<th>#data only</th>
+						<th>#master_data</th>
+						<th>#clinet</th>
+					</tr>
+				</<tbody>
+			</table>
+		</div>
+		
+		<div id='cluster-stats-indices'>
+			<h3>Indices</h3>
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th>#indices</th>
+						<th>#docs</th>
+						<th>#deleted docs</th>
+						<th>store size</th>
+						<th>fielddata(size/evict.)</th>
+						<th>filter cache(size/evict.)</th>
+						<th>#segments</th>
+						<th>segment mem</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>#indices</th>
+						<th>#docs</th>
+						<th>#deleted docs</th>
+						<th>store size</th>
+						<th>fielddata</th>
+						<th>filter cache</th>
+						<th>#segments</th>
+						<th>segment mem</th>
+					</tr>
+				</<tbody>
+			</table>
+		</div>
+	</div>
+</div>
+<script src="resources/foot/js/foot_admin_cluster.js"></script>
+<script type="text/javascript">
+var initRef = function() {
+	$('#cluster-stats-nodes-ref').attr('href', F.ref._cluster_stats_nodes);
+};
+</script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	initRef();
+	
+	clusterStats();
+});
+</script>

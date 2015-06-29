@@ -1,0 +1,408 @@
+<style>
+.list-group {
+	box-shadow: none;
+}
+</style>
+<div class='container' role='main'>
+	<div id='main-overview'>
+		<h2>
+			Indices Stats <a id='indices-stats-ref' href='#' target='_blank'><i class="fa fa-external-link-square"></i></a>
+		</h2>
+		<div class='container'>
+			<div id='indices-stats' class='row'>
+				<div id='indices-selector' class="col-lg-2 list-group">
+					<!-- a href="#" class="list-group-item"> Cras justo odio </a-->
+				</div>
+				<div class="col-lg-10 list-group">
+					<div class='container'>
+						<div class='row'>
+							<div class='col-lg-4'>
+								<table id='docs' class="table table-bordered">
+									<thead>
+										<tr>
+											<th colspan='2'>docs</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>#count</td>
+											<td>-</td>
+										</tr>
+										<tr>
+											<td>#count</td>
+											<td>-</td>
+										</tr>
+									</<tbody>
+								</table>
+							</div>
+							<div class='col-lg-4'>
+								<table id='store' class="table table-bordered">
+									<thead>
+										<tr>
+											<th colspan='2'>store</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>size_in_bytes</td>
+											<td>-</td>
+										</tr>
+										<tr>
+											<td>throttle_time_in_millis</td>
+											<td>-</td>
+										</tr>
+									</<tbody>
+								</table>
+							</div>
+							<div class='col-lg-4'>
+								<table id='translog' class="table table-bordered">
+									<thead>
+										<tr>
+											<th colspan='2'>translog</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>#operations</td>
+											<td>-</td>
+										</tr>
+										<tr>
+											<td>#data</td>
+											<td>-</td>
+										</tr>
+									</<tbody>
+								</table>
+							</div>
+						</div>
+						
+						<div class='row'>
+							<div class='col-lg-4'>
+								<table id='indexing' class="table table-bordered">
+									<thead>
+										<tr>
+											<th colspan='2'>indexing</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>#index_total</td>
+											<td>-</td>
+										</tr>
+										<tr>
+											<td>index_time_in_millis</td>
+											<td>-</td>
+										</tr>
+										<tr>
+											<td>#index_current</td>
+											<td>-</td>
+										</tr>
+										<tr>
+											<td>#delete_total</td>
+											<td>-</td>
+										</tr>
+										<tr>
+											<td>delete_time_in_millis</td>
+											<td>-</td>
+										</tr>
+										<tr>
+											<td>#delete_current</td>
+											<td>-</td>
+										</tr>
+										<tr>
+											<td>#noop_update_total</td>
+											<td>-</td>
+										</tr>
+										<tr>
+											<td>is_throttled</td>
+											<td>-</td>
+										</tr>
+										<tr>
+											<td>throttle_time_in_millis</td>
+											<td>-</td>
+										</tr>
+									</<tbody>
+								</table>
+							</div>
+							<div class='col-lg-4'>
+								<table id='get' class="table table-bordered">
+									<thead>
+										<tr>
+											<th colspan='2'>store</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>#total</td>
+											<td>-</td>
+										</tr>
+										<tr>
+											<td>throttle_time_in_millis</td>
+											<td>-</td>
+										</tr>
+										<tr>
+											<td>#exists_total</td>
+											<td>-</td>
+										</tr>
+										<tr>
+											<td>exists_time_in_millis</td>
+											<td>-</td>
+										</tr>
+										<tr>
+											<td>#missing_total</td>
+											<td>-</td>
+										</tr>
+										<tr>
+											<td>missing_time_in_millis</td>
+											<td>-</td>
+										</tr>
+										<tr>
+											<td>#current</td>
+											<td>-</td>
+										</tr>
+									</<tbody>
+								</table>
+							</div>
+							<div class='col-lg-4'>
+								<table id='search' class="table table-bordered">
+									<thead>
+										<tr>
+											<th colspan='2'>search</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>#open_contexts</td>
+											<td>-</td>
+										</tr>
+										<tr>
+											<td>#query_total</td>
+											<td>-</td>
+										</tr>
+										<tr>
+											<td>query_time_in_millis</td>
+											<td>-</td>
+										</tr>
+										<tr>
+											<td>#query_current</td>
+											<td>-</td>
+										</tr>
+										<tr>
+											<td>#fetch_total</td>
+											<td>-</td>
+										</tr>
+										<tr>
+											<td>fetch_time_in_millis</td>
+											<td>-</td>
+										</tr>
+										<tr>
+											<td>#fetch_current</td>
+											<td>-</td>
+										</tr>
+									</<tbody>
+								</table>
+							</div>
+						</div>
+						
+						<div class='row'>
+							<div class='col-lg-4'>
+								<table id='merges' class="table table-bordered">
+									<thead>
+										<tr>
+											<th colspan='2'>merges</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>#current</td>
+											<td>-</td>
+										</tr>
+										<tr>
+											<td>current_docs</td>
+											<td>-</td>
+										</tr>
+										<tr>
+											<td>current_size_in_bytes</td>
+											<td>-</td>
+										</tr>
+										<tr>
+											<td>#total</td>
+											<td>-</td>
+										</tr>
+										<tr>
+											<td>total_time_in_millis</td>
+											<td>-</td>
+										</tr>
+										<tr>
+											<td>#total_docs</td>
+											<td>-</td>
+										</tr>
+										<tr>
+											<td>total_size_in_bytes</td>
+											<td>-</td>
+										</tr>
+									</<tbody>
+								</table>
+							</div>
+							<div class='col-lg-4'>
+								<table id='segments' class="table table-bordered">
+									<thead>
+										<tr>
+											<th colspan='2'>segments</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>#count</td>
+											<td>-</td>
+										</tr>
+										<tr>
+											<td>memory_in_bytes</td>
+											<td>-</td>
+										</tr>
+										<tr>
+											<td>index_writer_memory_in_bytes</td>
+											<td>-</td>
+										</tr>
+										<tr>
+											<td>index_writer_max_memory_in_bytes</td>
+											<td>-</td>
+										</tr>
+										<tr>
+											<td>version_map_memory_in_bytes</td>
+											<td>-</td>
+										</tr>
+										<tr>
+											<td>fixed_bit_set_memory_in_bytes</td>
+											<td>-</td>
+										</tr>
+									</<tbody>
+								</table>
+							</div>
+							
+							<div class='col-lg-4'>
+								<table id='refresh' class="table table-bordered">
+									<thead>
+										<tr>
+											<th colspan='2'>refresh</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>#total</td>
+											<td>-</td>
+										</tr>
+										<tr>
+											<td>total_time_in_millis</td>
+											<td>-</td>
+										</tr>
+									</<tbody>
+								</table>
+								<table id='flush' class="table table-bordered">
+									<thead>
+										<tr>
+											<th colspan='2'>flush</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>#total</td>
+											<td>-</td>
+										</tr>
+										<tr>
+											<td>total_time_in_millis</td>
+											<td>-</td>
+										</tr>
+									</<tbody>
+								</table>
+							</div>
+						</div>
+						
+						<div class='row'>
+							<div class='col-lg-4'>
+								<table id='query_cache' class="table table-bordered">
+									<thead>
+										<tr>
+											<th colspan='2'>query_cache</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>memory_size_in_bytes</td>
+											<td>-</td>
+										</tr>
+										<tr>
+											<td>#evictions</td>
+											<td>-</td>
+										</tr>
+										<tr>
+											<td>#hit_count</td>
+											<td>-</td>
+										</tr>
+										<tr>
+											<td>#miss_count</td>
+											<td>-</td>
+										</tr>
+									</<tbody>
+								</table>
+							</div>
+							<div class='col-lg-4'>
+								<table id='filter_cache' class="table table-bordered">
+									<thead>
+										<tr>
+											<th colspan='2'>filter_cache</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>memory_size_in_bytes</td>
+											<td>-</td>
+										</tr>
+										<tr>
+											<td>#evictions</td>
+											<td>-</td>
+										</tr>
+									</<tbody>
+								</table>
+							</div>
+							<div class='col-lg-4'>
+								<table id='fielddata' class="table table-bordered">
+									<thead>
+										<tr>
+											<th colspan='2'>fielddata</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>memory_size_in_bytes</td>
+											<td>-</td>
+										</tr>
+										<tr>
+											<td>#evictions</td>
+											<td>-</td>
+										</tr>
+									</<tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="resources/foot/js/foot_admin_indices.js"></script>
+<script type="text/javascript">
+var initRef = function() {
+	$('#indices-stats-ref').attr('href', F.ref._indices_stats);
+};
+</script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	initRef();
+	
+	listIndices();
+});
+</script>

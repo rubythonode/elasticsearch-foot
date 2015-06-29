@@ -1,0 +1,54 @@
+<div class='container' role='main'>
+	<div id='main-overview'>
+		<h2>Nodes Stats <a id='nodes-stats-ref' href='#' target='_blank'><i class="fa fa-external-link-square"></i></a></h2>
+		<div class="btn-group">
+			<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+				Metrics <span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu" role="menu">
+				<li><a href="javascript:getMetrics('indices');">indices</a></li>
+				<li><a href="javascript:getMetrics('os');">os</a></li>
+				<li><a href="javascript:getMetrics('process');">process</a></li>
+				<li><a href="javascript:getMetrics('jvm');">jvm</a></li>
+				<li class="dropdown-header">thread_pool</li>
+				<li class="dropdown-header">network</li>
+				<li class="dropdown-header">fs</li>
+				<li class="dropdown-header">breakers</li>
+			</ul>
+		</div>
+		<br/>
+		<br/>
+		<div id='nodes-stats'>
+			<table id='nodes-stats' class="table table-bordered">
+				<thead>
+					<tr>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+					</tr>
+				</<tbody>
+			</table>
+		</div>
+	</div>
+</div>
+<script src="resources/foot/js/foot_admin_nodes.js"></script>
+<script type="text/javascript">
+var initRef = function() {
+	$('#nodes-stats-ref').attr('href', F.ref._nodes_stats);
+};
+</script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	initRef();
+	
+	METRIC = 'indices';
+	nodesStats();
+});
+
+var getMetrics = function(metric) {
+	METRIC = metric;
+	nodesStats();
+};
+</script>
