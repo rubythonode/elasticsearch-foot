@@ -5,6 +5,9 @@
  * @dateType json(default)/text
  */
 F.curlGet = function(url, callback, dataType) {
+	if ( F.mode == 'standalone' ) {
+		url = '/es' + url;
+	}
 	if ( !dataType ) {
 		dataType = 'json';
 	}
@@ -86,7 +89,6 @@ F.util.sortByField = function(field, reverse) {
 		}
 	}
 };
-
 
 F.format.bytes = function(bytes, scale) {
 	var bytesFloat = parseFloat(bytes);

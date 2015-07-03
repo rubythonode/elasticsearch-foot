@@ -25,3 +25,12 @@ F.ui.sortList = function(event, target, field, renderFunct) {
 	
 	renderFunct();
 };
+
+F.ui.getMenu = function(viewName) {
+	if ( F.mode == 'plugin' ) {
+		document.location.href = "/_plugin/elasticsearch-foot/index.html?view=" + viewName;
+	} else {
+		document.location.href = "/index.html?view=" + viewName;
+	}
+	
+};

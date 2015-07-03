@@ -1,0 +1,1 @@
+global.ES_HOME = '/home/socurites/git/elasticsearch-foot';

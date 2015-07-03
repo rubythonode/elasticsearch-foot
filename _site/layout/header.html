@@ -8,40 +8,63 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="/_plugin/elasticsearch-foot/index.html?view=overview.html">Foot</a>
+			<a class="navbar-brand" href="javascript:F.ui.getMenu('overview.html');">Foot</a>
 		</div>
 		<div id="navbar" class="navbar-collapse collapse">
 			<ul class="nav navbar-nav">
-				<li id="menu-overview" class="active"><a href="/_plugin/elasticsearch-foot/index.html?view=overview.html">Overview</a></li>
+				<li id="menu-overview" class="active"><a href="javascript:F.ui.getMenu('overview.html');">Overview</a></li>
 				<li id="menu-cluster" class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Cluster <span class="caret"></span></a>
 					<ul class="dropdown-menu" role="menu">
-						<li><a href="/_plugin/elasticsearch-foot/index.html?view=cluster_stats.html">Cluster Stats</a></li>
+						<li><a href="javascript:F.ui.getMenu('cluster_stats.html');">Cluster Stats</a></li>
 						<li class="divider"></li>
 						<li class="dropdown-header">Cluster Health</li>
-						<li><a href="/_plugin/elasticsearch-foot/index.html?view=cluster_health_indices_level.html">Indices Level</a></li>
+						<li><a href="javascript:F.ui.getMenu('cluster_health_indices_level.html');">Indices Level</a></li>
 					</ul>
 				</li>
 				<li id="menu-indices" class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Indices <span class="caret"></span></a>
 					<ul class="dropdown-menu" role="menu">
-						<li><a href="/_plugin/elasticsearch-foot/index.html?view=indices_stats.html">Indices Stats</a></li>
+						<li><a href="javascript:F.ui.getMenu('indices_stats.html');">Indices Stats</a></li>
 						<li class="divider"></li>
 						<li class="dropdown-header">Fielddata</li>
-						<li><a href="/_plugin/elasticsearch-foot/index.html?view=fielddata_indices_level.html">Indices Level</a></li>
-						<li><a href="/_plugin/elasticsearch-foot/index.html?view=fielddata_nodes_level.html">Nodes Level</a></li>
+						<li><a href="javascript:F.ui.getMenu('fielddata_indices_level.html');">Indices Level</a></li>
+						<li><a href="javascript:F.ui.getMenu('fielddata_nodes_level.html');">Nodes Level</a></li>
 						<li class="dropdown-header">Segments</li>
-						<li><a href="/_plugin/elasticsearch-foot/index.html?view=segments_indices_level.html">Indices Level</a></li>
+						<li><a href="javascript:F.ui.getMenu('segments_indices_level.html');">Indices Level</a></li>
 					</ul>
 				</li>
 				<li id="menu-nodes" class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Nodes <span class="caret"></span></a>
 					<ul class="dropdown-menu" role="menu">
-						<li><a href="/_plugin/elasticsearch-foot/index.html?view=nodes_stats.html">Nodes Stats</a></li>
+						<li><a href="javascript:F.ui.getMenu('nodes_stats.html');">Nodes Stats</a></li>
 						<li class="disabled"><a href="javascript:alert('coming soon');">Metrics Level</a></li>
 					</ul>
 				</li>
 				<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Utilities <span class="caret"></span></a>
 				</li>
 			</ul>
+			<form id="es-cluster-url" class="navbar-form navbar-right hidden">
+				<div class="form-group">
+					<input id="es-cluster-url-input" type="text" class="form-control" placeholder="http://localhost:9200" value="">
+				</div>
+				<button id="es-cluster-url-btn" type="button" class="btn btn-default"><span class="fa fa-server"></span></button>
+			</form>
 		</div>
 		<!--/.nav-collapse -->
 	</div>
 </nav>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	if ( F.mode == 'standalone' ) {
+		$('#es-cluster-url').removeClass('hidden');
+		$('#es-cluster-url-btn').bind('click', function() {
+			$.ajax({
+				type: 'GET',
+				url: '/config/url/save?url=' + $('#es-cluster-url-input').val(),
+				success : function(data) {
+				},
+				dataType : 'text'
+			});
+		});
+	}
+});
+</script>
