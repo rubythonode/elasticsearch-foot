@@ -16,12 +16,32 @@ Unzip it, and connect it through browser.
 rename it as 'foot'
 ```
 $ unzip elasticsearch-foot-master.zip
-$ mv elasticsearch-foot-master elasticsearch-foot
+$ mv elasticsearch-foot-master foot
+```
+
+Open foot config file(foot_config.js), then config some settings.
+```
+vi foot/_site/resources/foot/js/foot_config.js
+
+...
+/*
+ * elasticsearch-foot running mode
+ * - plugin   : plugin mode
+ * - standalone : standalone mode (under developing..)
+ */
+F.mode = 'plugin';
+
+/*
+ * elasticsearch-foot plugin name
+ * Set it correctly
+ */
+F.pugin_name = 'foot';
+...
 ```
 
 Open a browser, then type it.
 ```
-http://[host]:[folder]/_plugin/elasticsearch-foot/index.html
+http://[host]:[folder]/_plugin/foot/index.html
 ```
 
 ## Feature Snapshots
