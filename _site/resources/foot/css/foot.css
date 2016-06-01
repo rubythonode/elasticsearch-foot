@@ -1,0 +1,24 @@
+body {
+  padding-top: 70px;
+  padding-bottom: 30px;
+}
+
+.text-warning {
+	color: #E38D13;
+}
+
+table thead tr th {
+	text-align: center;
+}
+
+table tbody tr td {
+	text-align: right;
+}
+
+.table-td-center {
+	text-align: center;
+}
+
+.sort-list {
+	cursor: pointer;
+}
