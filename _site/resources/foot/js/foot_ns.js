@@ -4,7 +4,7 @@ var F = {};
 /* document reference url */
 F.ref = {};
 F.ref._cluster_health = 'https://www.elastic.co/guide/en/elasticsearch/guide/current/_cluster_health.html';
-F.ref._indices_health = 'https://www.elastic.co/guide/en/elasticsearch/reference/current/cat-indices.html';
+F.ref._indices_health_cat = 'https://www.elastic.co/guide/en/elasticsearch/reference/current/cat-indices.html';
 F.ref._nodes_health = 'https://www.elastic.co/guide/en/elasticsearch/reference/current/cat.html';
 F.ref._cluster_stats_nodes = 'https://www.elastic.co/guide/en/elasticsearch/reference/current/cluster-stats.html';
 F.ref._indices_health = 'https://www.elastic.co/guide/en/elasticsearch/guide/current/_cluster_health.html';
@@ -25,7 +25,7 @@ var $F = F.domain;
 $F.list = {};
 var $FL = $F.list;
 
-$F.IndicesHealth = function(health, status, index, num_primary_shards, num_replica_shards, num_docs, num_deleted_docs, store_size, primary_store_size) {
+$F.IndicesHealth = function(health, status, index, num_primary_shards, num_replica_shards, num_docs, num_deleted_docs, store_size, primary_store_size, store_size_bytes, primary_store_size_bytes) {
 	this.health = health;
 	this.status = status;
 	this.index = index;
@@ -35,6 +35,8 @@ $F.IndicesHealth = function(health, status, index, num_primary_shards, num_repli
 	this.num_deleted_docs = num_deleted_docs;
 	this.store_size = store_size;
 	this.primary_store_size = primary_store_size;
+	this.store_size_bytes = store_size_bytes;
+	this.primary_store_size_bytes = primary_store_size_bytes;
 };
 
 $F.IndicesHealth.prototype.formatHtml = function() {

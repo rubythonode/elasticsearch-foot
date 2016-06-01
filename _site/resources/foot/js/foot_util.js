@@ -37,6 +37,18 @@ F.util.nvl = function(str, formattedStr) {
 	return formattedStr;
 };
 
+F.util.nvlInt = function(val, defaultVal) {
+	if ( !defaultVal ) {
+		defaultVal = 0;
+	}
+	
+	if ( val ) {
+		return val;
+	}
+	
+	return defaultVal;
+};
+
 F.util.viewName = function(name) {
     var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
     
@@ -48,7 +60,7 @@ F.util.viewName = function(name) {
 };
 
 F.util.concat2FieldVals = function(val1, val2) {
-	return val1 + "(" + val2 + ")";
+	return val1 + " (" + val2 + ")";
 };
 
 F.util.keys = function(obj) {
@@ -97,11 +109,30 @@ F.format.bytes = function(bytes, scale) {
 		return 0;
 	}
 	
-	if ( scale == 'm' ) {
+	if ( scale == 'b' ) {
+		return (bytesFloat).toFixed(1) + 'b';
+	} else if ( scale == 'k' ) {
+		return (bytesFloat / 1024).toFixed(1) + 'kb';
+	} else if ( scale == 'm' ) {
 		return (bytesFloat / 1024 / 1024).toFixed(1) + 'mb';
 	} else if ( scale == 'g' ) {
 		return (bytesFloat / 1024 / 1024 / 1024).toFixed(2) + 'gb';
 	}
+};
+
+F.format.toBytes = function(bytesReadable) {
+	var bytes = 0;
+	if ( bytesReadable.match(/.*kb$/) ) {
+		bytes = parseFloat(bytesReadable) * 1024;
+	} else if ( bytesReadable.match(/.*mb$/) ) {
+		bytes = parseFloat(bytesReadable) * 1024 * 1024;
+	} else if ( bytesReadable.match(/.*gb$/) ) {
+		bytes = parseFloat(bytesReadable) * 1024 * 1024 * 1024;
+	} else {
+		bytes = parseFloat(bytesReadable);
+	}
+	
+	return Math.round(bytes);
 };
 
 F.format.count = function(count) {

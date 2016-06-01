@@ -23,7 +23,7 @@ var indicesHealth = F.curlGet('/_cat/indices', function(data) {
 			$FL.indicesHealth.push(new $F.IndicesHealth('-', 'close', tokens[2], '-', '-', '-', '-', '-', '-'));
 		} else {
 			var tokens = line[i].replace(/ +/g, ' ').split(' ');
-			$FL.indicesHealth.push(new $F.IndicesHealth(tokens[0], tokens[1], tokens[2], tokens[3], tokens[4], tokens[5], tokens[6], tokens[7], tokens[8]));
+			$FL.indicesHealth.push(new $F.IndicesHealth(tokens[0], tokens[1], tokens[2], tokens[3], tokens[4], tokens[5], tokens[6], tokens[7], tokens[8], F.format.toBytes(tokens[7]), F.format.toBytes(tokens[8])));
 		}
 	}
 	

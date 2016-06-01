@@ -13,8 +13,8 @@ var clusterStats = F.curlGet('/_cluster/stats', function(data) {
 		  + '<td>' + F.format.count(data.indices.docs.count) + '</td>'
 		  + '<td>' + F.format.count(data.indices.docs.deleted) + '</td>'
 		  + '<td>' + F.format.bytes(data.indices.store.size_in_bytes, 'g') + '</td>'
-		  + '<td>' + F.util.concat2FieldVals(F.util.nvl(data.indices.fielddata.size_in_bytes, '-'), data.indices.fielddata.evictions) + '</td>'
-		  + '<td>' + F.util.concat2FieldVals(F.util.nvl(data.indices.filter_cache.size_in_bytes, '-'), data.indices.filter_cache.evictions) + '</td>'
+		  + '<td>' + F.util.concat2FieldVals(F.format.bytes(F.util.nvl(data.indices.fielddata.memory_size_in_bytes, '0'), 'g'), data.indices.fielddata.evictions) + '</td>'
+          + '<td>' + F.util.concat2FieldVals(F.format.bytes(F.util.nvl(data.indices.filter_cache.memory_size_in_bytes, '0'), 'g'), data.indices.filter_cache.evictions) + '</td>'
 		  + '<td>' + F.format.count(data.indices.segments.count) + '</td>'
 		  + '<td>' + F.format.bytes(data.indices.segments.memory_in_bytes, 'g') + '</td>'
 		  );

@@ -22,3 +22,7 @@ table tbody tr td {
 .sort-list {
 	cursor: pointer;
 }
+
+a, a:hover {
+	color: #E38D13;
+}
