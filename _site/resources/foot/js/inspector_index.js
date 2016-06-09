@@ -10,10 +10,10 @@ var __render = function(indexNameFilter) {
 	
 	var indexColor = {};
 	
-	for ( var i = 0; i < $FL.dataNodes.length; i++ ) {
+	for ( var i = 0; i < $FL.indices.length; i++ ) {
 		
-		$F.inspector['total_metric'] += $FL.dataNodes[i][$FG.metric][$FG.key];
-		$F.inspector['max_metric'] = Math.max($F.inspector['max_metric'], $FL.dataNodes[i][$FG.metric][$FG.key]);
+		$F.inspector['total_metric'] += $FL.indices[i][$FG.metric][$FG.key];
+		$F.inspector['max_metric'] = Math.max($F.inspector['max_metric'], $FL.indices[i][$FG.metric][$FG.key]);
 	}
 	
 	
@@ -26,7 +26,6 @@ var __render = function(indexNameFilter) {
 		shardHtml += '	<td style="width:100%;">\n';
 		shardHtml += '		<div class="progress">\n';
 
-		
 		var shardData = [];
 		for ( var j = 0 ; j < $FL.shards.length; j++ ) {
 			if ( $FL.indices[i].indexName == $FL.shards[j].indexName ) {
@@ -44,8 +43,6 @@ var __render = function(indexNameFilter) {
 			}
 		}
 		shardData.sort(F.util.sortByFieldVal($FG.metric, $FG.key, true), false);
-		$FL.indices.sort(F.util.sortByFieldVal($FG.metric, $FG.key, true), false);
-		
 		
 		for ( var j = 0 ; j < shardData.length; j++ ) {
 			shardHtml += '<div data-toggle="popover" data-trigger="hover" data-html="true" title="'
@@ -62,6 +59,7 @@ var __render = function(indexNameFilter) {
 		shardHtml += '</tbody>';
 	}
 	
+	$FL.indices.sort(F.util.sortByFieldVal($FG.metric, $FG.key, true), false);
 	for ( var j =0; j < $FL.indices.length; j++ ) {
 		indexHtml += '<button data-trigger="hover" data-container="body" data-toggle="popover" data-html="true" title="'
 			+ $FL.indices[j].indexName 
@@ -147,11 +145,11 @@ var __getIndexPopOverHtml = function(indexData) {
 	html += '			<td>' + F.format.count(indexData.search.fetch_total) + '</td>';
 	html += '		</tr>';
 	html += '		<tr>';
-	html += '			<td>avg. query time</td>';
+	html += '			<td>avg. query time(ms)</td>';
 	html += '			<td>' + (indexData.search.query_time_in_millis / F.util.nvlInt(indexData.search.query_total, 1)).toFixed(1) + '</td>';
 	html += '		</tr>';
 	html += '		<tr>';
-	html += '			<td>avg. fetch time</td>';
+	html += '			<td>avg. fetch time(ms)</td>';
 	html += '			<td>' + (indexData.search.fetch_time_in_millis / F.util.nvlInt(indexData.search.fetch_total, 1)).toFixed(1) + '</td>';
 	html += '		</tr>';
 	html += '		<tr>';
@@ -244,11 +242,11 @@ var __getShardPopOverHtml = function(shardData) {
 	html += '			<td>' + F.format.count(shardData.search.fetch_total) + '</td>';
 	html += '		</tr>';
 	html += '		<tr>';
-	html += '			<td>avg. query time</td>';
+	html += '			<td>avg. query time(ms)</td>';
 	html += '			<td>' + (shardData.search.query_time_in_millis / F.util.nvlInt(shardData.search.query_total, 1)).toFixed(1) + '</td>';
 	html += '		</tr>';
 	html += '		<tr>';
-	html += '			<td>avg. fetch time</td>';
+	html += '			<td>avg. fetch time(ms)</td>';
 	html += '			<td>' + (shardData.search.fetch_time_in_millis / F.util.nvlInt(shardData.search.fetch_total, 1)).toFixed(1) + '</td>';
 	html += '		</tr>';
 	html += '		<tr>';
