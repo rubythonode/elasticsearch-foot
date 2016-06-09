@@ -144,7 +144,9 @@ var __render = function() {
 		
 		
 		for ( var j = 0 ; j < shardData.length; j++ ) {
-			shardHtml += '<div data-toggle="popover" data-trigger="hover" title="Dismissible popover" data-html="true" data-content="' 
+			shardHtml += '<div data-toggle="popover" data-trigger="hover" data-html="true" title="'
+				+ __getShardTitle(shardData[j])
+				+ '" data-content="' 
 				+ __getShardPopOverHtml(shardData[j])
 				+ '" class="progress-bar" style="background-color:' + indexColor[shardData[j].indexName] 
 				+ '; width: ' + (shardData[j][$FG.metric][$FG.key] / F.util.nvlInt($F.inspector['max_metric'], 1) * 100) + '%">\n';
@@ -175,6 +177,22 @@ var __render = function() {
 	$('#max-metric').text(F.format.count($F.inspector['max_metric']));
 	
 	$('[data-toggle=popover]').popover();
+};
+
+var __getShardTitle = function(shardData) {
+	var title = '';
+	title += shardData.indexName
+	title += ' / ';
+	title += shardData.shardNo
+	title += ' th ';
+	
+	if ( shardData.isPrimary ) {
+		title += ' primary';
+	} else {
+		title += ' replica';
+	}
+	
+	return title;
 };
 
 var __getIndexPopOverHtml = function(indexData) {
