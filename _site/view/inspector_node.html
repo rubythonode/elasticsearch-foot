@@ -1,0 +1,148 @@
+<style>
+.inspector-table-title {
+	padding: 0px 4px 0px 4px !important;
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+
+.inspector-table > tbody > tr > td {
+	padding: 0px;
+}
+
+
+.progress {
+	background-image: none;
+	margin-bottom: 1px;
+	box-shadow: none;
+	border-radius: 0;
+	background-color: #f5f5f5;
+}
+
+.progress-bar {
+	background-image: none;
+	background-color: #4FB733;
+	box-shadow: none;
+	border-right-width: 1px;
+	border-right-style: solid;
+}
+
+.popover-content-table-title {
+	font-weight: bold;
+}
+
+.popover-content-table > tbody > tr > td {
+	padding: 3px 8px 3px 8px;
+}
+
+.metric-text {
+	font-size: 10px;
+}
+
+</style>
+<div class='container' role='main'>
+	<div id='main-overview'>
+		<div class='row'>
+			<div class='col-lg-6'>
+				<h2>Inspector - Nodes</h2>
+			</div>
+			<div class='col-lg-6'>
+				<span class='pull-right' style="padding-top:25px;"><a id='indices-stats-ref' href='#' target='_blank'><i class="fa fa-question-circle"></i></a></span>
+			</div>
+		</div>
+		<div class='container'>
+			<div class="row" style="margin-bottom: 12px;">
+				<div class="btn-group" role="group">
+					<button class="btn btn-default btn-sm btn-metric" data-metric="docs" data-key="count">docs count</button>
+					<button class="btn btn-default btn-sm btn-metric" data-metric="store" data-key="size_in_bytes">store size</button>
+					<button class="btn btn-default btn-sm btn-metric" data-metric="filter_cache" data-key="memory_size_in_bytes">filter_cache memory</button>
+					<button class="btn btn-default btn-sm btn-metric" data-metric="query_cache" data-key="hit_count">query_cache hit</button>
+					<button class="btn btn-default btn-sm btn-metric" data-metric="query_cache" data-key="memory_size_in_bytes">query_cache memory</button>
+					<button class="btn btn-default btn-sm btn-metric" data-metric="fielddata" data-key="memory_size_in_bytes">fielddata memory</button>
+					<button class="btn btn-default btn-sm btn-metric" data-metric="search" data-key="query_total">search query</button>
+					<button class="btn btn-default btn-sm btn-metric" data-metric="search" data-key="fetch_total">search fetch</button>
+					<button class="btn btn-default btn-sm btn-metric" data-metric="search" data-key="avg_query">search avg. query</button>
+					<button class="btn btn-default btn-sm btn-metric" data-metric="search" data-key="avg_fetch">search avg. fetch</button>
+					<button class="btn btn-default btn-sm btn-metric" data-metric="segments" data-key="count">segments count</button>
+					<button class="btn btn-default btn-sm btn-metric" data-metric="segments" data-key="memory_in_bytes">segments memory</button>
+					<button class="btn btn-default btn-sm btn-metric" data-metric="translog" data-key="operations">translog #op</button>
+					<button class="btn btn-default btn-sm btn-metric" data-metric="translog" data-key="size_in_bytes">translog size</button>
+				</div>
+			</div>
+			<div id="indices-list" class="row " style="margin-bottom: 12px;">
+			</div>
+			<div class="row">
+				<span class="pull-right">Max: <span id="max-metric" class="metric-text">205,299</span> / Total: <span id="total-metric" class="metric-text">205,299</span></span>
+				<table id="display-div" class="table table-bordered inspector-table" width="100%;">
+					<tbody>
+						<tr>
+							<td class="inspector-table-title">
+								<span class="nowrap">mphes01</span>
+							</td>
+							<td style="width:100%;">
+								<div class="progress">
+									<div class="progress-bar" style="background-color:#dab8af; width: 21.2%">
+										<span class="sr-only">35% Complete (success)</span>
+									</div>
+									<div class="progress-bar progress-bar-warning "style="background-color:#dab0de; width: 14.1%">
+										<span class="sr-only">20% Complete (warning)</span>
+									</div>
+									<div class="progress-bar progress-bar-danger" style="background-color:#7cb488; width: 23.005%">
+										<span class="sr-only">10% Complete (danger)</span>
+									</div>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="inspector-table-title">
+								<span class="nowrap">mphes01</span>
+							</td>
+							<td>
+								<div class="progress">
+									<div class="progress-bar" style="background-color:#dab8af; width: 21.2%">
+										<span class="sr-only">35% Complete (success)</span>
+									</div>
+									<div class="progress-bar progress-bar-warning "style="background-color:#dab0de; width: 14.1%">
+										<span class="sr-only">20% Complete (warning)</span>
+									</div>
+									<div class="progress-bar progress-bar-danger" style="background-color:#7cb488; width: 23.005%">
+										<span class="sr-only">10% Complete (danger)</span>
+									</div>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="resources/foot/js/inspector_node.js"></script>
+<script type="text/javascript">
+var initRef = function() {
+	$('#indices-stats-ref').attr('href', F.ref._indices_stats);
+};
+</script>
+
+<script type="text/javascript">
+var showMetric = function(targetEl) {
+	$('.btn-metric').removeClass('btn-success');
+	$(targetEl).addClass('btn-success');
+	
+	listMetric($(targetEl).attr('data-metric'), $(targetEl).attr('data-key'));
+}
+</script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	initRef();
+	
+	$('.btn-metric').bind('click', function() {
+		showMetric($(this));
+	});
+	
+	$('.btn-metric:first').trigger('click');
+});
+</script>

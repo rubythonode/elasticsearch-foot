@@ -19,6 +19,9 @@ F.format = {};
 
 F.ui = {};
 
+F.global = {};
+var $FG = F.global;
+
 F.domain = {};
 var $F = F.domain;
 
@@ -140,4 +143,97 @@ $F.FielddataNodesLevel.prototype.formatHtml = function() {
 		  + '</tr>';
 	
 	return result;
+};
+
+$F.Node = function(id, name, ip, docs, store, indexing, get, search, merges, refresh, flush, filter_cache, fielddata, segments, translog, query_cache) {
+	this.id = id;
+	this.name = name;
+	this.ip = ip;
+	this.docs = docs;
+	this.store = store;
+	this.indexing = indexing;
+	this.get = get;
+	this.search = search;
+	this.merges = merges;
+	this.refresh = refresh;
+	this.flush = flush;
+	this.filter_cache = filter_cache;
+	this.fielddata = fielddata;
+	this.segments = segments;
+	this.translog = translog;
+	this.query_cache = query_cache;
+	
+	if ( this.search.query_total <= 0 ) {
+		this.search.avg_query = 0.0;
+	} else {
+		this.search.avg_query = (this.search.query_time_in_millis / this.search.query_total, 1).toFixed(1);
+	}
+	
+	if ( this.search.fetch_total <= 0 ) {
+		this.search.avg_fetch = 0.0;
+	} else {
+		this.search.avg_fetch = (this.search.fetch_time_in_millis / this.search.fetch_total, 1).toFixed(1);
+	}
+};
+
+$F.Index = function(indexName, docs, store, indexing, get, search, merges, refresh, flush, filter_cache, fielddata, segments, translog, query_cache) {
+	this.indexName = indexName;
+	this.docs = docs;
+	this.store = store;
+	this.indexing = indexing;
+	this.get = get;
+	this.search = search;
+	this.merges = merges;
+	this.refresh = refresh;
+	this.flush = flush;
+	this.filter_cache = filter_cache;
+	this.fielddata = fielddata;
+	this.segments = segments;
+	this.translog = translog;
+	this.query_cache = query_cache;
+	
+	if ( this.search.query_total <= 0 ) {
+		this.search.avg_query = 0.0;
+	} else {
+		this.search.avg_query = (this.search.query_time_in_millis / this.search.query_total, 1).toFixed(1);
+	}
+	
+	if ( this.search.fetch_total <= 0 ) {
+		this.search.avg_fetch = 0.0;
+	} else {
+		this.search.avg_fetch = (this.search.fetch_time_in_millis / this.search.fetch_total, 1).toFixed(1);
+	}
+};
+
+$F.Shard = function(nodeId, indexName, shardNo, isPrimary, routing, docs, store, indexing, get, search, merges, refresh, flush, filter_cache, fielddata, segments, translog, query_cache) {
+	this.nodeId = nodeId;
+	this.indexName = indexName;
+	this.shardNo = shardNo;
+	this.isPrimary = isPrimary;
+	this.routing = routing;
+	this.docs = docs;
+	this.store = store;
+	this.indexing = indexing;
+	this.get = get;
+	this.search = search;
+	this.merges = merges;
+	this.refresh = refresh;
+	this.flush = flush;
+	this.filter_cache = filter_cache;
+	this.fielddata = fielddata;
+	this.segments = segments;
+	this.translog = translog;
+	this.query_cache = query_cache;
+	
+	if ( this.search.query_total <= 0 ) {
+		this.search.avg_query = 0.0;
+	} else {
+		this.search.avg_query = (this.search.query_time_in_millis / this.search.query_total, 1).toFixed(1);
+	}
+	
+	if ( this.search.fetch_total <= 0 ) {
+		this.search.avg_fetch = 0.0;
+	} else {
+		this.search.avg_fetch = (this.search.fetch_time_in_millis / this.search.fetch_total, 1).toFixed(1);
+	}
 };

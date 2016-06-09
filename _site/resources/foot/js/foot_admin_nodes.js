@@ -11,23 +11,23 @@ var nodesStats = F.curlGet('/_nodes/stats', function(data) {
 		html += '	<td class="table-td-center">' + data.nodes[nodeKeys[i]].name + '</td>';
 		html += '	<td class="">' + F.format.bytes(data.nodes[nodeKeys[i]][metric].filter_cache.memory_size_in_bytes, 'm') + '</td>';
 		html += '	<td class="">' + data.nodes[nodeKeys[i]][metric].filter_cache.evictions + '</td>';
+		html += '	<td class="">' + data.nodes[nodeKeys[i]][metric].query_cache.miss_count + '</td>';
+		html += '	<td class="">' + data.nodes[nodeKeys[i]][metric].query_cache.hit_count + '</td>';
+		html += '	<td class="">' + data.nodes[nodeKeys[i]][metric].query_cache.evictions + '</td>';
+		html += '	<td class="">' + F.format.bytes(data.nodes[nodeKeys[i]][metric].query_cache.memory_size_in_bytes, 'm') + '</td>';
+		html += '	<td class="">' + F.format.bytes(data.nodes[nodeKeys[i]][metric].fielddata.memory_size_in_bytes, 'g') + '</td>';
+		html += '	<td class="">' + data.nodes[nodeKeys[i]][metric].fielddata.evictions + '</td>';
 		html += '	<td class="">' + F.format.count(data.nodes[nodeKeys[i]][metric].search.query_total) + '</td>';
 		html += '	<td class="">' + F.format.count(data.nodes[nodeKeys[i]][metric].search.fetch_total) + '</td>';
-		html += '	<td class="">' + (data.nodes[nodeKeys[i]][metric].search.query_time_in_millis / F.util.nvlInt(data.nodes[nodeKeys[i]][metric].search.query_total, 1))  + '</td>';
-		html += '	<td class="">' + (data.nodes[nodeKeys[i]][metric].search.fetch_time_in_millis / F.util.nvlInt(data.nodes[nodeKeys[i]][metric].search.fetch_total, 1))  + '</td>';
+		html += '	<td class="">' + (data.nodes[nodeKeys[i]][metric].search.query_time_in_millis / F.util.nvlInt(data.nodes[nodeKeys[i]][metric].search.query_total, 1)).toFixed(1) + '</td>';
+		html += '	<td class="">' + (data.nodes[nodeKeys[i]][metric].search.fetch_time_in_millis / F.util.nvlInt(data.nodes[nodeKeys[i]][metric].search.fetch_total, 1)).toFixed(1) + '</td>';
 		html += '	<td class="">' + data.nodes[nodeKeys[i]][metric].segments.count + '</td>';
 		html += '	<td class="">' + F.format.bytes(data.nodes[nodeKeys[i]][metric].segments.memory_in_bytes, 'm') + '</td>';
 		html += '	<td class="">' + F.format.count(data.nodes[nodeKeys[i]][metric].docs.count) + '</td>';
 		html += '	<td class="">' + F.format.count(data.nodes[nodeKeys[i]][metric].docs.deleted) + '</td>';
 		html += '	<td class="">' + F.format.bytes(data.nodes[nodeKeys[i]][metric].store.size_in_bytes, 'g') + '</td>';
 		html += '	<td class="">' + data.nodes[nodeKeys[i]][metric].translog.operations + '</td>';
-		html += '	<td class="">' + F.format.bytes(data.nodes[nodeKeys[i]][metric].translog.size_in_bytes, 'b') + '</td>';
-		html += '	<td class="">' + data.nodes[nodeKeys[i]][metric].query_cache.miss_count + '</td>';
-		html += '	<td class="">' + data.nodes[nodeKeys[i]][metric].query_cache.hit_count + '</td>';
-		html += '	<td class="">' + data.nodes[nodeKeys[i]][metric].query_cache.evictions + '</td>';
-		html += '	<td class="">' + F.format.bytes(data.nodes[nodeKeys[i]][metric].query_cache.memory_size_in_bytes, 'k') + '</td>';
-		html += '	<td class="">' + F.format.bytes(data.nodes[nodeKeys[i]][metric].fielddata.memory_size_in_bytes, 'g') + '</td>';
-		html += '	<td class="">' + data.nodes[nodeKeys[i]][metric].fielddata.evictions + '</td>';
+		html += '	<td class="">' + F.format.bytes(data.nodes[nodeKeys[i]][metric].translog.size_in_bytes, 'k') + '</td>';
 	}
 		
 	html += '</tr>';

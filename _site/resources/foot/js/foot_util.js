@@ -102,6 +102,25 @@ F.util.sortByField = function(field, reverse) {
 	}
 };
 
+F.util.sortByFieldVal = function(field, val, reverse) {
+	return function(a, b) {
+		if ( reverse ) {
+			return -(a[field][val] - b[field][val]);
+		} else {
+			return (a[field][val] - b[field][val]);
+		}
+	}
+};
+
+F.util.randColor = function colorFor() {
+	var h = Math.random() * 360
+	var s = 30 + Math.random() * 20
+	var l = 60 + Math.random() * 20
+	// return [$.husl.toHex(h, s, l), $.husl.toHex(h, s, l - 10)];
+	return $.husl.toHex(h, s, l);
+};
+
+
 F.format.bytes = function(bytes, scale) {
 	var bytesFloat = parseFloat(bytes);
 	

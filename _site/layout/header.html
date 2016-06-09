@@ -13,6 +13,13 @@
 		<div id="navbar" class="navbar-collapse collapse">
 			<ul class="nav navbar-nav">
 				<li id="menu-overview" class="active"><a href="javascript:F.ui.getMenu('overview.html');">Overview</a></li>
+				<li id="menu-cluster" class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Inspector <span class="caret"></span></a>
+					<ul class="dropdown-menu" role="menu">
+						<li><a href="javascript:F.ui.getMenu('inspector_node.html');">Nodes</a></li>
+						<li><a href="javascript:F.ui.getMenu('inspector_index.html');">Indices</a></li>
+						<li><a href="javascript:F.ui.getMenu('inspector_shard.html');">Shards</a></li>
+					</ul>
+				</li>
 				<li id="menu-cluster" class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Cluster <span class="caret"></span></a>
 					<ul class="dropdown-menu" role="menu">
 						<li><a href="javascript:F.ui.getMenu('cluster_stats.html');">Cluster Stats</a></li>
@@ -24,6 +31,7 @@
 				<li id="menu-indices" class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Indices <span class="caret"></span></a>
 					<ul class="dropdown-menu" role="menu">
 						<li><a href="javascript:F.ui.getMenu('indices_stats.html');">Indices Stats</a></li>
+						<li><a href="javascript:F.ui.getMenu('indices_stats_shard_level.html');">Indices Stats - shard level</a></li>
 						<li class="divider"></li>
 						<li class="dropdown-header">Fielddata</li>
 						<li><a href="javascript:F.ui.getMenu('fielddata_indices_level.html');">Indices Level</a></li>

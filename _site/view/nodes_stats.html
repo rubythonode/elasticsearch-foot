@@ -27,17 +27,23 @@
 					<tr>
 						<th rowspan='2'>node</th>
 						<th colspan='2'>filter_cache</th>
+						<th colspan='4'>query_cache</th>
+						<th colspan='2'>fielddata</th>
 						<th colspan='4'>search</th>
 						<th colspan='2'>segments</th>
 						<th colspan='2'>docs</th>
-						<th colspan='2'>store</th>
+						<th colspan='1'>store</th>
 						<th colspan='2'>translog</th>
-						<th colspan='3'>query_cache</th>
-						<th colspan='2'>fielddata</th>
 					</tr>
 					<tr>
 						<th>mem</th>
 						<th>evt</th>
+						<th>#miss</th>
+						<th>#hit</th>
+						<th>evt</th>
+						<th>mem</th>
+						<th>mem</th>
+						<th>evt.</th>
 						<th>#query</th>
 						<th>#fetch</th>
 						<th>query<br/>avg(ms)</th>
@@ -49,12 +55,6 @@
 						<th>size</th>
 						<th>#op</th>
 						<th>size</th>
-						<th>#miss</th>
-						<th>#hit</th>
-						<th>evt</th>
-						<th>mem</th>
-						<th>mem</th>
-						<th>evt.</th>
 					</tr>
 				</thead>
 				<tbody>
