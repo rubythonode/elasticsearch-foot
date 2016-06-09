@@ -4,6 +4,7 @@ var __render = function(indexNameFilter) {
 			'total_metric': 0
 	};
 	
+	
 	var indexHtml = '';
 	var shardHtml = '';
 	
@@ -17,10 +18,10 @@ var __render = function(indexNameFilter) {
 	
 	
 	shardHtml += '<tbody>';
-	for ( var i = 0; i < $FL.dataNodes.length; i++ ) {
+	for ( var i = 0; i < $FL.indices.length; i++ ) {
 		shardHtml += '<tr>\n';
 		shardHtml += '	<td class="inspector-table-title">\n';
-		shardHtml += '		<span class="nowrap">' + $FL.dataNodes[i].name + '</span>\n';
+		shardHtml += '		<span class="nowrap">' + $FL.indices[i].indexName + '</span>\n';
 		shardHtml += '	</td>\n';
 		shardHtml += '	<td style="width:100%;">\n';
 		shardHtml += '		<div class="progress">\n';
@@ -28,7 +29,7 @@ var __render = function(indexNameFilter) {
 		
 		var shardData = [];
 		for ( var j = 0 ; j < $FL.shards.length; j++ ) {
-			if ( $FL.dataNodes[i].id == $FL.shards[j].nodeId ) {
+			if ( $FL.indices[i].indexName == $FL.shards[j].indexName ) {
 				if ( indexNameFilter ) {
 					if ( $FL.shards[j].indexName == indexNameFilter ) {
 						shardData.push($FL.shards[j]);
@@ -44,19 +45,18 @@ var __render = function(indexNameFilter) {
 		}
 		shardData.sort(F.util.sortByFieldVal($FG.metric, $FG.key, true), false);
 		$FL.indices.sort(F.util.sortByFieldVal($FG.metric, $FG.key, true), false);
-
+		
+		
 		for ( var j = 0 ; j < shardData.length; j++ ) {
-			console.debug(j);
-			
 			shardHtml += '<div data-toggle="popover" data-trigger="hover" data-html="true" title="'
 				+ __getShardTitle(shardData[j])
 				+ '" data-content="' 
 				+ __getShardPopOverHtml(shardData[j])
 				+ '" class="progress-bar" style="background-color:' + indexColor[shardData[j].indexName] 
-				+ '; width: ' + (shardData[j][$FG.metric][$FG.key] / F.util.nvlInt($F.inspector['max_metric'], 1) * 100) + '%;">\n';
+				+ '; width: ' + (shardData[j][$FG.metric][$FG.key] / F.util.nvlInt($F.inspector['max_metric'], 1) * 100) + '%">\n';
 			shardHtml += '</div>\n';
 		}
-		shardHtml += '		<span class="metric-text">' + F.format.count($FL.dataNodes[i][$FG.metric][$FG.key]) + '</span></div>\n';
+		shardHtml += '		<span class="metric-text">' + F.format.count($FL.indices[i][$FG.metric][$FG.key]) + '</span></div>\n';
 		shardHtml += '	</td>\n';
 		shardHtml += '</tr>\n';
 		shardHtml += '</tbody>';
